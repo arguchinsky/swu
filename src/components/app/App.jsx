@@ -1,3 +1,12 @@
 import React from 'react';
+import './app.css';
+import { BrowserRouter } from 'react-router-dom';
+import { Header } from '../header'
+import { Main } from '../main';
 
-export const App = () => <h1> Welcome to the StartWars Universe!</h1>
+export const App = () => (
+  <BrowserRouter>
+    <Header />
+    <Main />
+  </BrowserRouter>
+);
