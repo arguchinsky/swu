@@ -1,8 +1,8 @@
 import React from 'react';
 import './itemDetails.css';
 
-export const ItemDetails = () => (
+export const ItemDetails = ({ data }) => (
   <section className='details'>
-    <p>DITAILS</p>
+    <h2>{data}</h2>
   </section>
 )
