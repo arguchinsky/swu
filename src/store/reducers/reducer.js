@@ -4,32 +4,32 @@ const initialState = {
   planets: [],
   people: [],
   activeList: [],
-  activeItem: null
+  activeItem: null,
 };
 
 export const appReducer = (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case ACTIONS.PLANETS_LOADED:
       return {
         ...state,
         planets: action.planets,
-      }
-    case ACTIONS.PEOPLE_LOADED: 
+      };
+    case ACTIONS.PEOPLE_LOADED:
       return {
         ...state,
         people: action.people,
-      }
-    case ACTIONS.CHANGED_ACTIVE_LIST: 
+      };
+    case ACTIONS.CHANGED_ACTIVE_LIST:
       return {
         ...state,
         activeList: action.activeList,
-      }
-    case ACTIONS.CHANGED_ACTIVE_ITEM: 
+      };
+    case ACTIONS.CHANGED_ACTIVE_ITEM:
       return {
         ...state,
         activeItem: action.activeItem,
-      }
-    default: 
+      };
+    default:
       return state;
   }
-}
+};
