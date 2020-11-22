@@ -8,9 +8,15 @@ import { Planets } from '../planets';
 export const Main = () => (
   <main className='main'>
     <Switch>
-      <Route path='/planets' children={Planets}/>
-      <Route path='/people' children={People}/>
-      <Route path='/' children={Home}/>
-    </Switch>    
+      <Route path='/planets'>
+        <Planets />
+      </Route>
+      <Route path='/people'>
+        <People />
+      </Route>
+      <Route path='/'>
+        <Home />
+      </Route>
+    </Switch>
   </main>
 );
