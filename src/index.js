@@ -1,12 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom'
+
 import './index.css';
+import { store } from './store';
+import { planetsLoaded, peopleLoaded } from './store/actions';
 import { App } from './components/app';
 import { RequestService } from './services'
+import { ServiceContextProvider } from './components/service-context';
 
-const rService = new RequestService();
+const requestService = new RequestService();
 
-rService.getPlanets().then(console.info);
-rService.getPeople().then(console.info);
+/////////////// TEST ////////////////////
+store.subscribe(() => console.log(store.getState()));
 
-ReactDOM.render(<App />, document.getElementById('root'));
+requestService.getPlanets().then(planetsLoaded).then(store.dispatch);
+requestService.getPeople().then(peopleLoaded).then(store.dispatch);
+/////////////////////////////////////////
+
+ReactDOM.render(
+  <Provider store={store}>  
+    <BrowserRouter>
+      <ServiceContextProvider value={requestService}>
+        <App />
+      </ServiceContextProvider>
+    </BrowserRouter>
+  </Provider>
+  , document.getElementById('root'));
