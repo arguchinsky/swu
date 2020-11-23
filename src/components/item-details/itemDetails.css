@@ -2,4 +2,35 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+
+  color: rgb(248, 32, 32);
 }
+
+.details h2{
+  font-size: 2em;
+  margin-bottom: 30px;
+}
+
+.details ul{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  width: 60%;
+  height: 50%;
+
+  font-size: 1.4em;
+}
+
+.details strong{
+  color: rgba(21,242,253,1.00);
+}
+
+.details li{
+  padding-left: 10px;
+  box-shadow: 0px 4px 7px 0px rgba(255, 232, 31);
+  border-radius: 15px;
+}
+
+

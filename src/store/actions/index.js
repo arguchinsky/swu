@@ -1,2 +1,7 @@
 export { ACTIONS } from './actionTypes';
-export { planetsLoaded, peopleLoaded } from './actionCreators';
+export {
+  planetsLoaded,
+  peopleLoaded,
+  changedActiveList,
+  changedActiveItem,
+} from './actionCreators';

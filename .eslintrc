@@ -24,6 +24,7 @@
     "react-hooks"
   ],
   "rules": {
+    "object-curly-newline": ["error", { "multiline": true }],
     "prettier/prettier": ["error"],
     "react/prop-types": "off",
     "jsx-quotes": ["error", "prefer-single"],

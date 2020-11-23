@@ -1,0 +1,4 @@
+[1123/190859.532:ERROR:file_io.cc(90)] ReadExactly: expected 728, observed 0
+[1123/190859.651:ERROR:crash_report_database_win.cc(474)] failed to read records
+[1123/200058.935:ERROR:file_io.cc(90)] ReadExactly: expected 728, observed 0
+[1123/200058.936:ERROR:crash_report_database_win.cc(474)] failed to read records

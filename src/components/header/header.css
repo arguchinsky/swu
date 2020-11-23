@@ -36,10 +36,9 @@
 }
 
 .navigation-item:hover {
-  box-shadow: 0px 0px 11px 2px tomato;
+  box-shadow: 0px 0px 11px 2px rgba(248, 32, 32,1.00);
 }
 
 .navigation-item:active {
-  background-color: tomato;
-  box-shadow: none;
+  box-shadow: 0px 0px 11px 2px rgba(255, 232, 31);
 }
