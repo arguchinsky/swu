@@ -25,6 +25,7 @@ export const appReducer = (state = initialState, action) => {
         activeList: action.activeList,
       };
     case ACTIONS.CHANGED_ACTIVE_ITEM:
+      console.log(action);
       return {
         ...state,
         activeItem: action.activeItem,

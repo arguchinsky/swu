@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { ListItem } from '../list-item';
-import { ItemDetails } from '../item-details';
+import { PeopleDetails } from '../item-details';
 import { Loading } from '../loading';
 
 export const People = () => {
@@ -12,11 +12,20 @@ export const People = () => {
   const items = people.map((person) => person.name);
   const item = people.find((person) => person.name === activeItem);
 
-  console.log(item);
   return (
     <>
       <ListItem items={items} />
-      {item ? <ItemDetails item={item} /> : <Loading />}
+      {item ? (
+        <PeopleDetails
+          name={item.name}
+          birthYear={item.birthYear}
+          gender={item.gender}
+          height={item.height}
+          hairColor={item.hairColor}
+        />
+      ) : (
+        <Loading />
+      )}
     </>
   );
 };
