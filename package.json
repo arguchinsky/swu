@@ -9,7 +9,7 @@
     "start": "webpack-dev-server --mode development --open --hot",
     "build": "webpack --mode production",
     "predeploy": "yarn build",
-    "gh-build": "gh-pages -d build",
+    "deploy": "gh-pages -d build",
     "lint": "eslint --debug src/",
     "lint:write": "eslint --debug src/ --fix",
     "prettier": "prettier --write src/**/*.js"
