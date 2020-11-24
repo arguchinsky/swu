@@ -1,2 +1,1 @@
-export { PeopleDetails } from './PeopleDetails';
-export { PlanetsDetails } from './PlanetsDetails';
+export { ItemDetails } from './ItemDetails';

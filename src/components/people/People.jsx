@@ -2,30 +2,23 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { ListItem } from '../list-item';
-import { PeopleDetails } from '../item-details';
-import { Loading } from '../loading';
+import { ItemDetails } from '../item-details';
+import { PersonDetails } from '../person-details';
+
+import { getRenderData } from '../../utils';
 
 export const People = () => {
   const people = useSelector((state) => state.people);
   const activeItem = useSelector((state) => state.activeItem);
 
-  const items = people.map((person) => person.name);
-  const item = people.find((person) => person.name === activeItem);
+  const { items, item, hasItem } = getRenderData(people, activeItem);
 
   return (
     <>
       <ListItem items={items} />
-      {item ? (
-        <PeopleDetails
-          name={item.name}
-          birthYear={item.birthYear}
-          gender={item.gender}
-          height={item.height}
-          hairColor={item.hairColor}
-        />
-      ) : (
-        <Loading />
-      )}
+      <ItemDetails hasItem={hasItem}>
+        <PersonDetails item={item} />
+      </ItemDetails>
     </>
   );
 };
