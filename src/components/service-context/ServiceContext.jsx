@@ -1,5 +1,3 @@
-import React from 'react'
+import React from 'react';
 
-export const {
-  Provider
-} = React.createContext()
+export const { Provider } = React.createContext();
