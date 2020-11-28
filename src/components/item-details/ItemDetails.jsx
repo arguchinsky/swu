@@ -1,8 +1,8 @@
 import React from 'react';
 
 import './itemDetails.css';
-import { Loading } from '../loading';
+import { EmptyDetails } from '../empty-details';
 
 export const ItemDetails = ({ hasItem, children }) => (
-  <section className='details'>{hasItem ? children : <Loading />}</section>
+  <section className='details'>{hasItem ? children : <EmptyDetails />}</section>
 );
