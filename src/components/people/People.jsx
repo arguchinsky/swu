@@ -1,17 +1,22 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { ListItem } from '../list-item';
 import { ItemDetails } from '../item-details';
 import { PersonDetails } from '../person-details';
 
+import { getPeople } from '../../store/middleware';
 import { getRenderData } from '../../utils';
 
 export const People = () => {
-  const people = useSelector((state) => state.people);
-  const activeItem = useSelector((state) => state.activeItem);
+  const dispatch = useDispatch();
+  const { people, activeItem } = useSelector((state) => state);
 
   const { items, item, hasItem } = getRenderData(people, activeItem);
+
+  useEffect(() => {
+    dispatch(getPeople);
+  }, [dispatch]);
 
   return (
     <>

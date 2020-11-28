@@ -3,7 +3,6 @@ import { ACTIONS } from '../actions';
 const initialState = {
   planets: [],
   people: [],
-  activeList: [],
   activeItem: null,
 };
 
