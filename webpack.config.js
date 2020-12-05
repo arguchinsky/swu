@@ -5,8 +5,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'swp_bundle.js',
-    publicPath: '/',
+    filename: 'swu_bundle.js',
   },
   devServer: { historyApiFallback: true },
   module: {
