@@ -1,8 +1,15 @@
 import { REQUESTS, RequestService } from '../../services';
-import { planetsLoaded } from '../actions';
+import { planetsLoaded, dataRequested, dataLoaded } from '../actions';
 
 const requestService = new RequestService(REQUESTS);
 
 export const getPlanets = (dispatch) => {
-  requestService.getPlanets().then(planetsLoaded).then(dispatch);
+  dispatch(dataRequested());
+  requestService
+    .getPlanets()
+    .then(planetsLoaded)
+    .then((action) => {
+      dispatch(action);
+      dispatch(dataLoaded());
+    });
 };

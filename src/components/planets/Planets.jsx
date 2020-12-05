@@ -10,23 +10,25 @@ import { getPlanets } from '../../store/middleware';
 import { getRenderData } from '../../utils';
 
 export const Planets = () => {
+  const { dataLoaded, planets, activeItem } = useSelector((state) => state);
   const dispatch = useDispatch();
-  const { planets, activeItem } = useSelector((state) => state);
-
-  const { isLoaded, items, item, hasItem } = getRenderData(planets, activeItem);
 
   useEffect(() => {
     dispatch(getPlanets);
   }, [dispatch]);
 
-  return isLoaded ? (
-    <>
-      <ListItem items={items} />
-      <ItemDetails hasItem={hasItem}>
-        <PlanetDetails item={item} />
-      </ItemDetails>
-    </>
-  ) : (
-    <Loading />
-  );
+  if (dataLoaded) {
+    const { items, item, hasItem } = getRenderData(planets, activeItem);
+
+    return (
+      <>
+        <ListItem items={items} />
+        <ItemDetails hasItem={hasItem}>
+          <PlanetDetails item={item} />
+        </ItemDetails>
+      </>
+    );
+  }
+
+  return <Loading />;
 };

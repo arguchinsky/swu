@@ -10,23 +10,24 @@ import { getPeople } from '../../store/middleware';
 import { getRenderData } from '../../utils';
 
 export const People = () => {
+  const { dataLoaded, people, activeItem } = useSelector((state) => state);
   const dispatch = useDispatch();
-  const { people, activeItem } = useSelector((state) => state);
-
-  const { isLoaded, items, item, hasItem } = getRenderData(people, activeItem);
 
   useEffect(() => {
     dispatch(getPeople);
   }, [dispatch]);
 
-  return isLoaded ? (
-    <>
-      <ListItem items={items} />
-      <ItemDetails hasItem={hasItem}>
-        <PersonDetails item={item} />
-      </ItemDetails>
-    </>
-  ) : (
-    <Loading />
-  );
+  if (dataLoaded) {
+    const { items, item, hasItem } = getRenderData(people, activeItem);
+
+    return (
+      <>
+        <ListItem items={items} />
+        <ItemDetails hasItem={hasItem}>
+          <PersonDetails item={item} />
+        </ItemDetails>
+      </>
+    );
+  }
+  return <Loading />;
 };
