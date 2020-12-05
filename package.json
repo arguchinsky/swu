@@ -7,7 +7,8 @@
   "homepage": "http://arguchinsky.github.io/swu",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
-    "predeploy": "webpack --mode production",
+    "build": "webpack --mode production",
+    "predeploy": "yarn build",
     "deploy": "gh-pages -d build",
     "lint": "eslint --debug src/",
     "lint:write": "eslint --debug src/ --fix",
