@@ -1,3 +1,13 @@
 import React from 'react';
 
-export const App = () => <h1> Welcome to the StartWars Universe!</h1>
+import { Header } from '../header';
+import { Main } from '../main';
+
+import './app.css';
+
+export const App = () => (
+  <>
+    <Header />
+    <Main />
+  </>
+);
