@@ -1,5 +1,5 @@
 /* eslint-disable class-methods-use-this */
-import { convertPeople, convertPlanet } from '../utils';
+import { getRequiredPlanetFields, getRequiredPeopleFields } from '../utils';
 
 export class RequestService {
   constructor(requests) {
@@ -15,13 +15,13 @@ export class RequestService {
 
   async getPlanets() {
     const data = await this.getData(this.requests.PLANET);
-    const planets = data.results.map(convertPlanet);
+    const planets = data.results.map(getRequiredPlanetFields);
     return planets;
   }
 
   async getPeople() {
     const data = await this.getData(this.requests.PEOPLE);
-    const people = data.results.map(convertPeople);
+    const people = data.results.map(getRequiredPeopleFields);
     return people;
   }
 }

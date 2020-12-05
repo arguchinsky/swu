@@ -2,12 +2,11 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { ListItem } from '../list-item';
-import { ItemDetails } from '../item-details';
 import { PlanetDetails } from '../planet-details';
 import { Loading } from '../loading';
 
 import { getPlanets } from '../../store/middleware';
-import { getRenderData } from '../../utils';
+import { getTitles, getActiveItem } from '../../utils';
 
 export const Planets = () => {
   const { dataLoaded, planets, activeItem } = useSelector((state) => state);
@@ -18,14 +17,13 @@ export const Planets = () => {
   }, [dispatch]);
 
   if (dataLoaded) {
-    const { items, item, hasItem } = getRenderData(planets, activeItem);
+    const titles = getTitles(planets);
+    const item = getActiveItem(planets, activeItem);
 
     return (
       <>
-        <ListItem items={items} />
-        <ItemDetails hasItem={hasItem}>
-          <PlanetDetails item={item} />
-        </ItemDetails>
+        <ListItem titles={titles} />
+        <PlanetDetails item={item} />
       </>
     );
   }

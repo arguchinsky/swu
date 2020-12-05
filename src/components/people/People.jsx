@@ -2,12 +2,11 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { ListItem } from '../list-item';
-import { ItemDetails } from '../item-details';
 import { PersonDetails } from '../person-details';
 import { Loading } from '../loading';
 
 import { getPeople } from '../../store/middleware';
-import { getRenderData } from '../../utils';
+import { getTitles, getActiveItem } from '../../utils';
 
 export const People = () => {
   const { dataLoaded, people, activeItem } = useSelector((state) => state);
@@ -18,14 +17,12 @@ export const People = () => {
   }, [dispatch]);
 
   if (dataLoaded) {
-    const { items, item, hasItem } = getRenderData(people, activeItem);
-
+    const titles = getTitles(people);
+    const item = getActiveItem(people, activeItem);
     return (
       <>
-        <ListItem items={items} />
-        <ItemDetails hasItem={hasItem}>
-          <PersonDetails item={item} />
-        </ItemDetails>
+        <ListItem titles={titles} />
+        <PersonDetails item={item} />
       </>
     );
   }

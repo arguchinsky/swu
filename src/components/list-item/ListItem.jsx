@@ -8,13 +8,13 @@ import { changedActiveItem } from '../../store/actions';
 
 import './listItem.css';
 
-export const ListItem = ({ items }) => {
+export const ListItem = ({ titles }) => {
   const dispatch = useDispatch();
   const clickHandler = ({ target: { id } }) => dispatch(changedActiveItem(id));
 
   return (
     <ul className='items-container'>
-      {items.map((item) => (
+      {titles.map((item) => (
         <li className='item' onClick={clickHandler} key={v1()} id={item}>
           {item}
         </li>
