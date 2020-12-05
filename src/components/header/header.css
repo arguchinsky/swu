@@ -36,7 +36,7 @@
 }
 
 .navigation-item:hover {
-  box-shadow: 0px 0px 11px 2px rgba(248, 32, 32,1.00);
+  box-shadow: 0px 0px 11px 2px rgba(248, 32, 32, 1);
 }
 
 .navigation-item:active {

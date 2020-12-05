@@ -4,8 +4,9 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { v1 } from 'uuid';
 
-import './listItem.css';
 import { changedActiveItem } from '../../store/actions';
+
+import './listItem.css';
 
 export const ListItem = ({ items }) => {
   const dispatch = useDispatch();
